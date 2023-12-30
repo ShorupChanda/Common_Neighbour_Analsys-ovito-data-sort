@@ -1,13 +1,16 @@
 # Common_Neighbour_Analsys-ovito-data-sort
 This code can sort the fcc, hcp, others, bcc, ico types that has been extracted from the OVito Common Neighbour analsysis. 
+
 Demo Data in the File:
+================================================
 # Structure counts (5 data points):
 # "Structure type" Count
 Other 128101 
 FCC 3208 
 HCP 458 
 BCC 411083 
-ICO 0 
+ICO 0
+================================================
 
 "--------------------------------------------------------------------------"
 " MATLAB Script: CNA_ANALYSIS_Datasort"
