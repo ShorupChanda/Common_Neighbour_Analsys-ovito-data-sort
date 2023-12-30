@@ -1,0 +1,59 @@
+% Replace the data "** txt **" with the your ones 
+counts_other = zeros(**Number of files**, 1);
+counts_fcc = zeros(**Number of files**, 1);
+counts_hcp = zeros(**Number of files**, 1);
+counts_bcc = zeros(**Number of files**, 1);
+counts_ico = zeros(**Number of files**, 1);
+directoryPath = '**Location of your Files**';
+for fileIndex = 1:**Number of files** + 1
+    fileName = sprintf('**filename**.%d.txt', fileIndex-1);
+    fullFilePath = fullfile(directoryPath, fileName);
+    fileContent = fileread(fullFilePath);
+    lines = strsplit(fileContent, '\n');
+    for lineIndex = 3:length(lines)
+            if isempty(lines{lineIndex})
+                continue;
+            end
+        elements = strsplit(lines{lineIndex}, ' ');
+
+        if numel(elements) >= 2
+            
+            structureType = elements{1};
+            count = str2double(elements{2});
+            switch structureType
+                case 'Other'
+                counts_other(fileIndex) = count;
+                case 'FCC'
+                counts_fcc(fileIndex) = count;
+                case 'HCP'
+                counts_hcp(fileIndex) = count;
+                case 'BCC'
+                counts_bcc(fileIndex) = count;
+                case 'ICO'
+                counts_ico(fileIndex) = count;
+            end
+           else
+               fprintf('Error parsing line: %s\n', lines{lineIndex});
+        end
+    end
+end
+
+disp('Counts for Other:');
+disp(counts_other);
+
+disp('Counts for FCC:');
+disp(counts_fcc);
+
+disp('Counts for HCP:');
+disp(counts_hcp);
+
+disp('Counts for BCC:');
+disp(counts_bcc);
+
+disp('Counts for ICO:');
+disp(counts_ico);
+data = table(counts_other, counts_fcc, counts_hcp, counts_bcc, counts_ico);
+outputFileName = '**Location of save file**\CNA.xlsx';  % Change this to your desired output file path
+writetable(data, outputFileName);
+disp(['Data exported to Excel file: ' outputFileName]);
+
