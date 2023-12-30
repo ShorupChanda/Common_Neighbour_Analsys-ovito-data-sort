@@ -19,12 +19,13 @@
 This code can sort the fcc, hcp, others, bcc, ico types that has been extracted from the OVito Common Neighbour analysis. 
 
 Demo Data in the File:
-"--------------------------------------------------------------------------"
-Structure counts (5 data points):
-"Structure type" Count
-Other 128101 
-FCC 3208 
-HCP 458 
-BCC 411083 
-ICO 0
-"--------------------------------------------------------------------------"
+    
+    "--------------------------------------------------------------------------"
+    " Structure counts (5 data points):"
+    " Structure type Count"
+    " Other 128101"
+    " FCC 3208" 
+    " HCP 458 
+    " BCC 411083 
+    " ICO 0
+    "--------------------------------------------------------------------------"
